@@ -8,10 +8,16 @@ An interactive display system using Raspberry Pi, sensor-triggered video playbac
 🛠️ Features
 
 ✔ Sensor-activated video playback – Different stations trigger different videos.
+
+
 ✔ LED signaling system – LEDs change colors based on video status.
+
 ✔ Multiple Raspberry Pis – One for video playback (Player Pi), one for LED control (LED Pi).
+
 ✔ Compatible with various video formats (MP4, AVI, MKV, WebM, etc.).
+
 ✔ Supports up to 5 stations – Each station can have its own sensor, video, and LED output.
+
 
 🛠️ Hardware Requirements
 
