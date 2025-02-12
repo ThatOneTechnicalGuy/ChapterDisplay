@@ -44,5 +44,8 @@ Display Device(Screen)
 
 
 SETUP:
-run this command in terminal: bash <(curl -s https://raw.githubusercontent.com/ThatOneTechnicalGuy/ChapterDisplay/main/setup.sh)
+run this command in terminal: 
+
+cd ~ && curl -O https://raw.githubusercontent.com/ThatOneTechnicalGuy/ChapterDisplay/main/setup.sh && chmod +x setup.sh && sudo bash setup.sh
+
 
