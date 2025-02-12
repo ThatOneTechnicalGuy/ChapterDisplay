@@ -12,13 +12,10 @@ fi
 echo "📦 Updating system..."
 apt update && apt upgrade -y
 
-# Install required packages
+# Install required system packages
 echo "🔧 Installing dependencies..."
-apt install -y python3 python3-pip vlc git
-
-# Install Python libraries (including breaking system packages if needed)
-echo "🐍 Installing Python libraries..."
-pip3 install --break-system-packages RPi.GPIO rpi_ws281x adafruit-circuitpython-neopixel
+apt install -y python3 python3-pip python3-rpi.gpio python3-spidev python3-numpy python3-pil \
+               python3-vlc python3-tk git python3-rpi-ws281x
 
 # Clone Chapter Display repo (if not already cloned)
 INSTALL_DIR="/home/pi/ChapterDisplay"
@@ -45,4 +42,3 @@ echo "   cd ~/ChapterDisplay && python3 LED_PI.py"
 echo ""
 
 echo "✅ System is ready to go!"
-
