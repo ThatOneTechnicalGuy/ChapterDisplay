@@ -1,10 +1,10 @@
 #!/bin/bash
 
-echo "🚀 Setting up Chapter Display System..."
+echo "🚀 Setting up LED Pi (NeoPixel LED Control) System..."
 
 # Ensure script is run as root
 if [[ $EUID -ne 0 ]]; then
-   echo "❌ Please run as root: sudo bash setup.sh"
+   echo "❌ Please run as root: sudo bash setup_led.sh"
    exit 1
 fi
 
@@ -12,10 +12,10 @@ fi
 echo "📦 Updating system..."
 apt update && apt upgrade -y
 
-# Install required system packages
+# Install required system packages (INCLUDING LED LIBRARIES)
 echo "🔧 Installing dependencies..."
 apt install -y python3 python3-pip python3-rpi.gpio python3-spidev python3-numpy python3-pil \
-               python3-vlc python3-tk git python3-rpi-ws281x python3-pynput
+               python3-vlc python3-tk git python3-pynput python3-rpi-ws281x
 
 # Clone Chapter Display repo (if not already cloned)
 INSTALL_DIR="/home/pi/ChapterDisplay"
@@ -32,13 +32,10 @@ fi
 # Ensure scripts are executable
 chmod +x "$INSTALL_DIR"/*.py
 
-echo "🎉 Setup complete! Run the following commands to start:"
+echo "🎉 Setup complete! Run the following command to start LED Pi:"
 echo ""
-echo "📌 For Player Pi (Video Playback):"
-echo "   cd ~/ChapterDisplay && python3 PlayerPI2.py"
-echo ""
-echo "📌 For LED Pi (LED Control):"
+echo "📌 Start LED Pi (LED Control):"
 echo "   cd ~/ChapterDisplay && python3 LED_PI.py"
 echo ""
 
-echo "✅ System is ready to go!"
+echo "✅ LED Pi setup is complete!"
