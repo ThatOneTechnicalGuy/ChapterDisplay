@@ -43,10 +43,18 @@ Display Device(Screen)
 
 
 
-SETUP:
+SETUP_LEDPI:
+This is for the Pi that will manipulate the LED's:Note this disables audio use on the device
 run this command in terminal: 
 
-cd ~ && curl -O https://raw.githubusercontent.com/ThatOneTechnicalGuy/ChapterDisplay/main/setup.sh && chmod +x setup.sh && sudo bash setup.sh
+cd ~ && curl -O https://raw.githubusercontent.com/ThatOneTechnicalGuy/ChapterDisplay/main/setup_led.sh && chmod +x setup_led.sh && sudo bash setup_led.sh
+
+SETUP_PLAYER:
+This is for the Pi that will play video and audio
+
+run this command in terminal:
+
+cd ~ && curl -O https://raw.githubusercontent.com/ThatOneTechnicalGuy/ChapterDisplay/main/setup_player.sh && chmod +x setup_player.sh && sudo bash setup_player.sh
 
 
 
