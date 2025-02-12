@@ -39,3 +39,10 @@ Jumper Wires	Multiple	Wiring connections
 
 Display Device(Screen)
 
+
+
+
+
+SETUP:
+run this command in terminal: bash <(curl -s https://raw.githubusercontent.com/ThatOneTechnicalGuy/ChapterDisplay/main/setup.sh)
+
