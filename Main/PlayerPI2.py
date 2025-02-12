@@ -2,6 +2,8 @@ import RPi.GPIO as GPIO
 import vlc
 import time
 import tkinter as tk
+import threading
+import keyboard  # Import keyboard module for key press detection
 
 # GPIO Pin Assignments
 SENSOR_PINS = [5, 6, 13, 19, 26]  # Pressure sensors GPIO inputs
@@ -47,6 +49,9 @@ root.attributes("-fullscreen", True)
 root.configure(background='black')
 root.update()
 
+# Kill switch flag
+running = True
+
 def send_signal(index):
     """Send a HIGH signal to LED Pi to indicate video completion."""
     GPIO.output(SIGNAL_PINS[index], GPIO.HIGH)
@@ -80,16 +85,34 @@ def play_video(index):
 
 def monitor_sensors():
     """Continuously monitors pressure sensors for activation."""
-    while True:
+    global running
+    while running:
         for i, pin in enumerate(SENSOR_PINS):
             if GPIO.input(pin) == GPIO.HIGH:
                 play_video(i)
+        time.sleep(0.1)  # Small delay to reduce CPU usage
+
+def listen_for_kill_switch():
+    """Detects keyboard input for a kill switch."""
+    global running
+    while running:
+        if keyboard.is_pressed("q") or keyboard.is_pressed("esc"):
+            print("🔴 Kill switch activated! Exiting...")
+            running = False
+            break
+        time.sleep(0.1)  # Prevents high CPU usage
 
 if __name__ == "__main__":
     try:
-        root.update()  # Ensure black screen is active
+        # Start keyboard listening in a separate thread
+        kill_thread = threading.Thread(target=listen_for_kill_switch, daemon=True)
+        kill_thread.start()
+
+        # Run sensor monitoring
         monitor_sensors()
     except KeyboardInterrupt:
         print("Shutting down.")
+    finally:
+        print("🛑 Cleaning up resources...")
         GPIO.cleanup()
         root.destroy()
