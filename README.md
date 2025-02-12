@@ -37,3 +37,5 @@ Power Supply (5V 3A)	2	For Raspberry Pi
 
 Jumper Wires	Multiple	Wiring connections
 
+Display Device(Screen)
+
