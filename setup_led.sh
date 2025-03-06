@@ -15,7 +15,8 @@ apt update && apt upgrade -y
 # Install required system packages (INCLUDING LED LIBRARIES)
 echo "🔧 Installing dependencies..."
 apt install -y python3 python3-pip python3-rpi.gpio python3-spidev python3-numpy python3-pil \
-               python3-vlc python3-tk git python3-pynput python3-rpi-ws281x
+               python3-vlc python3-tk git python3-pynput
+pip install rpi_ws281x --break-system-packages
 
 # Clone Chapter Display repo (if not already cloned)
 INSTALL_DIR="/home/pi/ChapterDisplay"
