@@ -68,10 +68,6 @@ def listen_for_signals():
                 set_led_section(i, RED)  # Turn back to red
                 signal_received = True
 
-        if not signal_received:
-            turn_off_leds()  # If no signal, turn LEDs OFF
-
-        time.sleep(0.5)  # Small delay
 
 if __name__ == "__main__":
     try:
