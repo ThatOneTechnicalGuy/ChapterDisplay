@@ -7,7 +7,7 @@ INPUT_PINS = [17, 27, 22, 23, 24]  # Receiving signals from Player Pi
 
 # NeoPixel LED Setup (Single Pin for All LEDs)
 LED_PIN = 18  # GPIO 18 controls all LEDs
-LED_COUNT = 125  # 5 stations × 25 LEDs each
+LED_COUNT = 5  # 5 stations × 25 LEDs each
 LED_FREQ_HZ = 800000
 LED_DMA = 10
 LED_BRIGHTNESS = 255
